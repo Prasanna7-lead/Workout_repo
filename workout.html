@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💪 Upper Body Hypertrophy Workout Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .progress-overview {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, #45b7d1, #96c93d);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 20px;
+            height: 20px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .bulk-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .workout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .workout-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .workout-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .workout-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workout-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .workout-header:hover::before {
+            left: 100%;
+        }
+
+        .workout-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .workout-subtitle {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .collapse-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .workout-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .workout-content.expanded {
+            padding: 25px;
+            max-height: 1000px;
+        }
+
+        .workout-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .workout-controls .btn {
+            font-size: 0.85rem;
+            padding: 8px 16px;
+        }
+
+        .exercise-list {
+            list-style: none;
+        }
+
+        .exercise-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+        .exercise-item:last-child {
+            border-bottom: none;
+        }
+
+        .exercise-item:hover {
+            background: #f8f9ff;
+            padding-left: 10px;
+        }
+
+        .exercise-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: #667eea;
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+
+        .exercise-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .exercise-emoji {
+            font-size: 1.2rem;
+            margin-right: 12px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .exercise-text {
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .exercise-item.completed .exercise-text {
+            text-decoration: line-through;
+            opacity: 0.6;
+            color: #4ecdc4;
+        }
+
+        .timer-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .timer-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #ffa726, #ff7043);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #66bb6a, #43a047);
+        }
+
+        .rest-day {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            color: #2d3436;
+        }
+
+        .rest-day .workout-header {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            color: #2d3436;
+        }
+
+        .motivational-quote {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: slideUp 0.8s ease-out 0.6s both;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .quote-author {
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .workout-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timer-display {
+                font-size: 2.5rem;
+            }
+            
+            .timer-controls, .bulk-actions, .workout-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            z-index: 1000;
+            animation: celebrate 1s ease-out;
+            pointer-events: none;
+        }
+
+        @keyframes celebrate {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💪 5-Day Upper Body Hypertrophy Workout</h1>
+            <p>No legs, just gains! Track your progress and build that upper body strength.</p>
+        </div>
+
+        <div class="progress-overview">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #333;">📊 Your Progress</h2>
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="completedExercises">0</div>
+                    <div>Exercises Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="completedWorkouts">0</div>
+                    <div>Workouts Finished</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalExercises">23</div>
+                    <div>Total Exercises</div>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p style="text-align: center; margin-top: 10px; color: #666;" id="progressText">0% Complete - Let's get started! 🚀</p>
+            
+            <div class="bulk-actions">
+                <button class="btn btn-success" onclick="markAllComplete()">✅ Complete All</button>
+                <button class="btn btn-warning" onclick="markAllIncomplete()">🔄 Reset All</button>
+                <button class="btn btn-secondary" onclick="expandAllWorkouts()">📖 Expand All</button>
+                <button class="btn btn-secondary" onclick="collapseAllWorkouts()">📕 Collapse All</button>
+            </div>
+        </div>
+
+        <div class="workout-grid">
+            <div class="workout-card">
+                <div class="workout-header" onclick="toggleWorkout(this)">
+                    <div class="workout-title">
+                        Monday - Push A
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="workout-subtitle">Chest, Shoulders, Triceps</div>
+                </div>
+                <div class="workout-content">
+                    <div class="workout-controls">
+                        <button class="btn btn-success" onclick="markWorkoutComplete(this)">✅ Complete Workout</button>
+                        <button class="btn btn-warning" onclick="markWorkoutIncomplete(this)">🔄 Reset Workout</button>
+                    </div>
+                    <ul class="exercise-list">
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🏋️</span>
+                                <span class="exercise-text">Barbell Bench Press – 4 sets x 8 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">💪</span>
+                                <span class="exercise-text">Seated Dumbbell Shoulder Press – 3 sets x 8 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">📈</span>
+                                <span class="exercise-text">Incline Dumbbell Press – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🔥</span>
+                                <span class="exercise-text">Lateral Raises – 3 sets x 15 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">💀</span>
+                                <span class="exercise-text">Skullcrushers or Overhead Extensions – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🎯</span>
+                                <span class="exercise-text">Rope Tricep Pushdowns – 3 sets x 12-15 reps</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workout-card">
+                <div class="workout-header" onclick="toggleWorkout(this)">
+                    <div class="workout-title">
+                        Tuesday - Pull A
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="workout-subtitle">Back, Biceps</div>
+                </div>
+                <div class="workout-content">
+                    <div class="workout-controls">
+                        <button class="btn btn-success" onclick="markWorkoutComplete(this)">✅ Complete Workout</button>
+                        <button class="btn btn-warning" onclick="markWorkoutIncomplete(this)">🔄 Reset Workout</button>
+                    </div>
+                    <ul class="exercise-list">
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🐒</span>
+                                <span class="exercise-text">Pull-Ups (or Lat Pulldown) – 4 sets x 8 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🚣</span>
+                                <span class="exercise-text">Barbell Rows – 3 sets x 8 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">⚡</span>
+                                <span class="exercise-text">Seated Cable Rows – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🤷</span>
+                                <span class="exercise-text">Dumbbell Shrugs – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">💪</span>
+                                <span class="exercise-text">Barbell Curls – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🔨</span>
+                                <span class="exercise-text">Hammer Curls – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workout-card">
+                <div class="workout-header" onclick="toggleWorkout(this)">
+                    <div class="workout-title">
+                        Wednesday - Push B
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="workout-subtitle">Chest, Shoulders, Triceps</div>
+                </div>
+                <div class="workout-content">
+                    <div class="workout-controls">
+                        <button class="btn btn-success" onclick="markWorkoutComplete(this)">✅ Complete Workout</button>
+                        <button class="btn btn-warning" onclick="markWorkoutIncomplete(this)">🔄 Reset Workout</button>
+                    </div>
+                    <ul class="exercise-list">
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🏋️</span>
+                                <span class="exercise-text">Dumbbell Bench Press – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🏛️</span>
+                                <span class="exercise-text">Arnold Press – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🦅</span>
+                                <span class="exercise-text">Pec Deck (or Cable Flys) – 3 sets x 12-15 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">⬆️</span>
+                                <span class="exercise-text">Upright Rows – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">📐</span>
+                                <span class="exercise-text">Tricep Dips (Weighted if possible) – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🎯</span>
+                                <span class="exercise-text">Cable Overhead Tricep Extension – 2 sets x 15 reps</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workout-card">
+                <div class="workout-header" onclick="toggleWorkout(this)">
+                    <div class="workout-title">
+                        Thursday - Pull B
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="workout-subtitle">Back, Biceps, Rear Delts</div>
+                </div>
+                <div class="workout-content">
+                    <div class="workout-controls">
+                        <button class="btn btn-success" onclick="markWorkoutComplete(this)">✅ Complete Workout</button>
+                        <button class="btn btn-warning" onclick="markWorkoutIncomplete(this)">🔄 Reset Workout</button>
+                    </div>
+                    <ul class="exercise-list">
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">📏</span>
+                                <span class="exercise-text">Wide-Grip Lat Pulldown – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">📐</span>
+                                <span class="exercise-text">T-Bar Row – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">😤</span>
+                                <span class="exercise-text">Face Pulls – 3 sets x 15 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">📈</span>
+                                <span class="exercise-text">Incline Dumbbell Curls – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🎯</span>
+                                <span class="exercise-text">Concentration Curls – 2 sets x 15 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🦅</span>
+                                <span class="exercise-text">Rear Delt Flys – 3 sets x 15 reps</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workout-card">
+                <div class="workout-header" onclick="toggleWorkout(this)">
+                    <div class="workout-title">
+                        Friday - Arms Focus
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="workout-subtitle">Arms & Shoulder Focus</div>
+                </div>
+                <div class="workout-content">
+                    <div class="workout-controls">
+                        <button class="btn btn-success" onclick="markWorkoutComplete(this)">✅ Complete Workout</button>
+                        <button class="btn btn-warning" onclick="markWorkoutIncomplete(this)">🔄 Reset Workout</button>
+                    </div>
+                    <ul class="exercise-list">
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🤏</span>
+                                <span class="exercise-text">Close-Grip Bench Press – 3 sets x 8 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">⛪</span>
+                                <span class="exercise-text">Preacher Curls – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">☝️</span>
+                                <span class="exercise-text">Overhead Dumbbell Tricep Press – 3 sets x 12 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">〰️</span>
+                                <span class="exercise-text">EZ Bar Curls – 3 sets x 10 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🪢</span>
+                                <span class="exercise-text">Rope Pushdowns – 2 sets x 15 reps</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="workout-card rest-day">
+                <div class="workout-header" onclick="toggleWorkout(this)">
+                    <div class="workout-title">
+                        Weekend - Rest Days
+                        <span class="collapse-icon">▼</span>
+                    </div>
+                    <div class="workout-subtitle">Saturday & Sunday Recovery</div>
+                </div>
+                <div class="workout-content">
+                    <ul class="exercise-list">
+                        <li class="exercise-item">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">😴</span>
+                                <span class="exercise-text">Full rest or light mobility/stretching</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🧘</span>
+                                <span class="exercise-text">Focus on recovery and nutrition</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">💧</span>
+                                <span class="exercise-text">Stay hydrated and get quality sleep</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="timer-section">
+            <h2 style="margin-bottom: 20px; color: #333;">⏱️ Rest Timer</h2>
+            <div class="timer-display" id="timerDisplay">00:00</div>
+            <div class="timer-controls">
+                <button class="btn" onclick="startTimer(60)">1 Min</button>
+                <button class="btn" onclick="startTimer(90)">1.5 Min</button>
+                <button class="btn" onclick="startTimer(120)">2 Min</button>
+                <button class="btn" onclick="startTimer(180)">3 Min</button>
+                <button class="btn btn-secondary" onclick="pauseTimer()">Pause</button>
+                <button class="btn btn-danger" onclick="resetTimer()">Reset</button>
+            </div>
+        </div>
+
+        <div class="motivational-quote">
+            <div class="quote-text" id="quoteText">"The only bad workout is the one that didn't happen."</div>
+            <div class="quote-author" id="quoteAuthor">- Fitness Wisdom</div>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let timeRemaining = 0;
+        let isRunning = false;
+
+        const motivationalQuotes = [
+            { text: "The only bad workout is the one that didn't happen.", author: "Fitness Wisdom" },
+            { text: "Stronger than yesterday, weaker than tomorrow.", author: "Unknown" },
+            { text: "Your body can do it. It's your mind you have to convince.", author: "Fitness Motivation" },
+            { text: "The pain you feel today will be the strength you feel tomorrow.", author: "Arnold Schwarzenegger" },
+            { text: "Success isn't given. It's earned in the gym.", author: "Fitness Philosophy" },
+            { text: "Champions train, losers complain.", author: "Unknown" },
+            { text: "Every rep counts, every set matters.", author: "Gym Wisdom" }
+        ];
+
+        function toggleWorkout(header) {
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('.collapse-icon');
+            
+            content.classList.toggle('expanded');
+            icon.style.transform = content.classList.contains('expanded') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function expandAllWorkouts() {
+            const headers = document.querySelectorAll('.workout-header');
+            headers.forEach(header => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.collapse-icon');
+                content.classList.add('expanded');
+                icon.style.transform = 'rotate(180deg)';
+            });
+        }
+
+        function collapseAllWorkouts() {
+            const headers = document.querySelectorAll('.workout-header');
+            headers.forEach(header => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.collapse-icon');
+                content.classList.remove('expanded');
+                icon.style.transform = 'rotate(0deg)';
+            });
+        }
+
+        function markAllComplete() {
+            const checkboxes = document.querySelectorAll('.exercise-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateProgress();
+            showMegaCelebration();
+        }
+
+        function markAllIncomplete() {
+            const checkboxes = document.querySelectorAll('.exercise-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateProgress();
+        }
+
+        function markWorkoutComplete(button) {
+            const workoutCard = button.closest('.workout-card');
+            const checkboxes = workoutCard.querySelectorAll('.exercise-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = true;
+            });
+            updateProgress();
+            showCelebration();
+        }
+
+        function markWorkoutIncomplete(button) {
+            const workoutCard = button.closest('.workout-card');
+            const checkboxes = workoutCard.querySelectorAll('.exercise-checkbox');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.exercise-checkbox');
+            const checked = document.querySelectorAll('.exercise-checkbox:checked');
+            
+            // Update exercise item styling
+            checkboxes.forEach(checkbox => {
+                const exerciseItem = checkbox.closest('.exercise-item');
+                if (checkbox.checked) {
+                    exerciseItem.classList.add('completed');
+                } else {
+                    exerciseItem.classList.remove('completed');
+                }
+            });
+
+            const totalExercises = checkboxes.length;
+            const completedExercises = checked.length;
+            const completedWorkouts = Math.floor(completedExercises / 5); // Rough estimate
+            const progressPercentage = Math.round((completedExercises / totalExercises) * 100);
+
+            document.getElementById('completedExercises').textContent = completedExercises;
+            document.getElementById('completedWorkouts').textContent = completedWorkouts;
+            document.getElementById('progressFill').style.width = progressPercentage + '%';
+            
+            let progressMessage = '';
+            if (progressPercentage === 0) {
+                progressMessage = "0% Complete - Let's get started! 🚀";
+            } else if (progressPercentage < 25) {
+                progressMessage = `${progressPercentage}% Complete - Great start! Keep going! 💪`;
+            } else if (progressPercentage < 50) {
+                progressMessage = `${progressPercentage}% Complete - You're on fire! 🔥`;
+            } else if (progressPercentage < 75) {
+                progressMessage = `${progressPercentage}% Complete - More than halfway there! 🎯`;
+            } else if (progressPercentage < 100) {
+                progressMessage = `${progressPercentage}% Complete - Almost there, champion! 🏆`;
+            } else {
+                progressMessage = "100% Complete - You're a legend! 🎉";
+            }
+            
+            document.getElementById('progressText').textContent = progressMessage;
+
+            // Save progress to localStorage
+            localStorage.setItem('workoutProgress', JSON.stringify({
+                checkedItems: Array.from(checked).map(cb => Array.from(checkboxes).indexOf(cb))
+            }));
+        }
+
+        function showCelebration() {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            celebration.textContent = ['🎉', '💪', '🔥', '⭐', '🏆'][Math.floor(Math.random() * 5)];
+            document.body.appendChild(celebration);
+            
+            setTimeout(() => {
+                document.body.removeChild(celebration);
+            }, 1000);
+        }
+
+        function showMegaCelebration() {
+            const celebrations = ['🎉', '🏆', '💪', '🔥', '⭐'];
+            celebrations.forEach((emoji, index) => {
+                setTimeout(() => {
+                    const celebration = document.createElement('div');
+                    celebration.className = 'celebration';
+                    celebration.textContent = emoji;
+                    celebration.style.left = (30 + index * 20) + '%';
+                    document.body.appendChild(celebration);
+                    
+                    setTimeout(() => {
+                        if (document.body.contains(celebration)) {
+                            document.body.removeChild(celebration);
+                        }
+                    }, 1000);
+                }, index * 200);
+            });
+        }
+
+        function startTimer(seconds) {
+            resetTimer();
+            timeRemaining = seconds;
+            isRunning = true;
+            updateTimerDisplay();
+            
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    resetTimer();
+                    playNotification();
+                    showTimerComplete();
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            if (isRunning) {
+                clearInterval(timerInterval);
+                isRunning = false;
+            } else if (timeRemaining > 0) {
+                startTimer(timeRemaining);
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timeRemaining = 0;
+            isRunning = false;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('timerDisplay').textContent = display;
+            
+            // Change color based on time remaining
+            const timerDisplay = document.getElementById('timerDisplay');
+            if (timeRemaining <= 10 && timeRemaining > 0) {
+                timerDisplay.style.color = '#ff6b6b';
+                timerDisplay.style.animation = 'pulse 1s infinite';
+            } else {
+                timerDisplay.style.color = '#667eea';
+                timerDisplay.style.animation = 'none';
+            }
+        }
+
+        function playNotification() {
+            // Create audio context for notification sound
+            if (typeof(Audio) !== "undefined") {
+                // Create a simple beep sound using Web Audio API
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            }
+        }
+
+        function showTimerComplete() {
+            const celebration = document.createElement('div');
+            celebration.className = 'celebration';
+            celebration.textContent = '⏰ Rest Complete!';
+            celebration.style.fontSize = '2rem';
+            document.body.appendChild(celebration);
+            
+            setTimeout(() => {
+                document.body.removeChild(celebration);
+            }, 2000);
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('workoutProgress');
+            if (saved) {
+                const progress = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.exercise-checkbox');
+                progress.checkedItems.forEach(index => {
+                    if (checkboxes[index]) {
+                        checkboxes[index].checked = true;
+                    }
+                });
+                updateProgress();
+            }
+        }
+
+        function rotateQuote() {
+            const quote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
+            document.getElementById('quoteText').textContent = `"${quote.text}"`;
+            document.getElementById('quoteAuthor').textContent = `- ${quote.author}`;
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+            rotateQuote();
+            
+            // Rotate quotes every 10 seconds
+            setInterval(rotateQuote, 10000);
+            
+            // Add some initial animations
+            const cards = document.querySelectorAll('.workout-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+
+        // Add pulse animation for timer
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
