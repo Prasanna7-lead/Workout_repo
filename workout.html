@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@
         .header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
@@ -47,7 +48,7 @@
             border-radius: 20px;
             padding: 25px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             animation: slideUp 0.8s ease-out 0.2s both;
         }
 
@@ -120,14 +121,14 @@
             background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             animation: slideUp 0.8s ease-out;
         }
 
         .workout-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
 
         .workout-header {
@@ -146,7 +147,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s;
         }
 
@@ -256,7 +257,7 @@
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             animation: slideUp 0.8s ease-out 0.4s both;
         }
 
@@ -330,7 +331,7 @@
             padding: 25px;
             text-align: center;
             margin-top: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
             animation: slideUp 0.8s ease-out 0.6s both;
         }
 
@@ -351,6 +352,7 @@
                 opacity: 0;
                 transform: translateY(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -362,6 +364,7 @@
                 opacity: 0;
                 transform: translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -372,16 +375,18 @@
             .header h1 {
                 font-size: 2rem;
             }
-            
+
             .workout-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .timer-display {
                 font-size: 2.5rem;
             }
-            
-            .timer-controls, .bulk-actions, .workout-controls {
+
+            .timer-controls,
+            .bulk-actions,
+            .workout-controls {
                 flex-direction: column;
                 align-items: center;
             }
@@ -399,12 +404,24 @@
         }
 
         @keyframes celebrate {
-            0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -431,8 +448,9 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <p style="text-align: center; margin-top: 10px; color: #666;" id="progressText">0% Complete - Let's get started! 🚀</p>
-            
+            <p style="text-align: center; margin-top: 10px; color: #666;" id="progressText">0% Complete - Let's get
+                started! 🚀</p>
+
             <div class="bulk-actions">
                 <button class="btn btn-success" onclick="markAllComplete()">✅ Complete All</button>
                 <button class="btn btn-warning" onclick="markAllIncomplete()">🔄 Reset All</button>
@@ -467,7 +485,7 @@
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">💪</span>
-                                <span class="exercise-text">Seated Dumbbell Shoulder Press – 3 sets x 8 reps</span>
+                                <span class="exercise-text">Seated Dumbbell Shoulder Press – 3 sets x 10 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
@@ -488,7 +506,8 @@
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">💀</span>
-                                <span class="exercise-text">Skullcrushers or Overhead Extensions – 3 sets x 12 reps</span>
+                                <span class="exercise-text">Skullcrushers / Overhead Extensions – 3 sets x 12
+                                    reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
@@ -520,35 +539,35 @@
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🐒</span>
-                                <span class="exercise-text">Pull-Ups (or Lat Pulldown) – 4 sets x 8 reps</span>
+                                <span class="exercise-text">Pull-Ups / Close Grip Lat Pulldown – 4 sets x 8 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🚣</span>
-                                <span class="exercise-text">Barbell Rows – 3 sets x 8 reps</span>
+                                <span class="exercise-text">Bent Over Rows – 3 sets x 12 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">⚡</span>
-                                <span class="exercise-text">Seated Cable Rows – 3 sets x 10 reps</span>
+                                <span class="exercise-text">Seated / Chest Supported Rows – 3 sets x 12 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🤷</span>
-                                <span class="exercise-text">Dumbbell Shrugs – 3 sets x 12 reps</span>
+                                <span class="exercise-text">Dumbbell / Smith Bar Shrugs – 3 sets x 12 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">💪</span>
-                                <span class="exercise-text">Barbell Curls – 3 sets x 10 reps</span>
+                                <span class="exercise-text">Barbell / Dumbbell Curls – 3 sets x 10 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
@@ -580,42 +599,43 @@
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🏋️</span>
-                                <span class="exercise-text">Dumbbell Bench Press – 3 sets x 10 reps</span>
+                                <span class="exercise-text">Dumbbell Bench Press – 4 sets x 10 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🏛️</span>
-                                <span class="exercise-text">Arnold Press – 3 sets x 10 reps</span>
+                                <span class="exercise-text">Arnold / Shoulder Press – 3 sets x 10 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🦅</span>
-                                <span class="exercise-text">Pec Deck (or Cable Flys) – 3 sets x 12-15 reps</span>
+                                <span class="exercise-text">Pec Deck / Cable Flys / Decline Barbell – 3 sets x 12-15
+                                    reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">⬆️</span>
-                                <span class="exercise-text">Upright Rows – 3 sets x 12 reps</span>
+                                <span class="exercise-text">Upright Rows / Front Raises – 3 sets x 12 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">📐</span>
-                                <span class="exercise-text">Tricep Dips (Weighted if possible) – 3 sets x 12 reps</span>
+                                <span class="exercise-text">Tricep / Bench Dips – 3 sets x 12 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">🎯</span>
-                                <span class="exercise-text">Cable Overhead Tricep Extension – 2 sets x 15 reps</span>
+                                <span class="exercise-text">Cable Overhead Tricep Extension – 3 sets x 15 reps</span>
                             </div>
                         </li>
                     </ul>
@@ -647,7 +667,7 @@
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
                                 <span class="exercise-emoji">📐</span>
-                                <span class="exercise-text">T-Bar Row – 3 sets x 10 reps</span>
+                                <span class="exercise-text">T-Bar / One-Arm Dumbbell Rows – 3 sets x 10 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
@@ -685,10 +705,10 @@
             <div class="workout-card">
                 <div class="workout-header" onclick="toggleWorkout(this)">
                     <div class="workout-title">
-                        Friday - Arms Focus
+                        Friday – Abdominal
                         <span class="collapse-icon">▼</span>
                     </div>
-                    <div class="workout-subtitle">Arms & Shoulder Focus</div>
+                    <div class="workout-subtitle">Core & Stability (No Equipment)</div>
                 </div>
                 <div class="workout-content">
                     <div class="workout-controls">
@@ -699,41 +719,56 @@
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
-                                <span class="exercise-emoji">🤏</span>
-                                <span class="exercise-text">Close-Grip Bench Press – 3 sets x 8 reps</span>
+                                <span class="exercise-emoji">🤸‍♂️</span>
+                                <span class="exercise-text">Plank with Shoulder Taps – 30 sec</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
-                                <span class="exercise-emoji">⛪</span>
-                                <span class="exercise-text">Preacher Curls – 3 sets x 12 reps</span>
+                                <span class="exercise-emoji">🚴</span>
+                                <span class="exercise-text">Bicycle Crunches – 15 reps/side</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
-                                <span class="exercise-emoji">☝️</span>
-                                <span class="exercise-text">Overhead Dumbbell Tricep Press – 3 sets x 12 reps</span>
+                                <span class="exercise-emoji">🔄</span>
+                                <span class="exercise-text">Crunches – 20 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
-                                <span class="exercise-emoji">〰️</span>
-                                <span class="exercise-text">EZ Bar Curls – 3 sets x 10 reps</span>
+                                <span class="exercise-emoji">👣</span>
+                                <span class="exercise-text">Heel Touches – 20 reps</span>
                             </div>
                         </li>
                         <li class="exercise-item">
                             <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
                             <div class="exercise-content">
-                                <span class="exercise-emoji">🪢</span>
-                                <span class="exercise-text">Rope Pushdowns – 2 sets x 15 reps</span>
+                                <span class="exercise-emoji">🦋</span>
+                                <span class="exercise-text">Flutter Kicks – 30 sec</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🔁</span>
+                                <span class="exercise-text">Reverse Crunches – 15 reps</span>
+                            </div>
+                        </li>
+                        <li class="exercise-item">
+                            <input type="checkbox" class="exercise-checkbox" onchange="updateProgress()">
+                            <div class="exercise-content">
+                                <span class="exercise-emoji">🧱</span>
+                                <span class="exercise-text">Forearm Plank – 30–60 sec</span>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
+
 
             <div class="workout-card rest-day">
                 <div class="workout-header" onclick="toggleWorkout(this)">
@@ -788,6 +823,7 @@
     </div>
 
     <script>
+        
         let timerInterval;
         let timeRemaining = 0;
         let isRunning = false;
@@ -805,7 +841,7 @@
         function toggleWorkout(header) {
             const content = header.nextElementSibling;
             const icon = header.querySelector('.collapse-icon');
-            
+
             content.classList.toggle('expanded');
             icon.style.transform = content.classList.contains('expanded') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
@@ -869,7 +905,7 @@
         function updateProgress() {
             const checkboxes = document.querySelectorAll('.exercise-checkbox');
             const checked = document.querySelectorAll('.exercise-checkbox:checked');
-            
+
             // Update exercise item styling
             checkboxes.forEach(checkbox => {
                 const exerciseItem = checkbox.closest('.exercise-item');
@@ -888,7 +924,7 @@
             document.getElementById('completedExercises').textContent = completedExercises;
             document.getElementById('completedWorkouts').textContent = completedWorkouts;
             document.getElementById('progressFill').style.width = progressPercentage + '%';
-            
+
             let progressMessage = '';
             if (progressPercentage === 0) {
                 progressMessage = "0% Complete - Let's get started! 🚀";
@@ -903,7 +939,7 @@
             } else {
                 progressMessage = "100% Complete - You're a legend! 🎉";
             }
-            
+
             document.getElementById('progressText').textContent = progressMessage;
 
             // Save progress to localStorage
@@ -917,7 +953,7 @@
             celebration.className = 'celebration';
             celebration.textContent = ['🎉', '💪', '🔥', '⭐', '🏆'][Math.floor(Math.random() * 5)];
             document.body.appendChild(celebration);
-            
+
             setTimeout(() => {
                 document.body.removeChild(celebration);
             }, 1000);
@@ -932,7 +968,7 @@
                     celebration.textContent = emoji;
                     celebration.style.left = (30 + index * 20) + '%';
                     document.body.appendChild(celebration);
-                    
+
                     setTimeout(() => {
                         if (document.body.contains(celebration)) {
                             document.body.removeChild(celebration);
@@ -947,11 +983,11 @@
             timeRemaining = seconds;
             isRunning = true;
             updateTimerDisplay();
-            
+
             timerInterval = setInterval(() => {
                 timeRemaining--;
                 updateTimerDisplay();
-                
+
                 if (timeRemaining <= 0) {
                     resetTimer();
                     playNotification();
@@ -981,7 +1017,7 @@
             const seconds = timeRemaining % 60;
             const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             document.getElementById('timerDisplay').textContent = display;
-            
+
             // Change color based on time remaining
             const timerDisplay = document.getElementById('timerDisplay');
             if (timeRemaining <= 10 && timeRemaining > 0) {
@@ -995,21 +1031,21 @@
 
         function playNotification() {
             // Create audio context for notification sound
-            if (typeof(Audio) !== "undefined") {
+            if (typeof (Audio) !== "undefined") {
                 // Create a simple beep sound using Web Audio API
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 const oscillator = audioContext.createOscillator();
                 const gainNode = audioContext.createGain();
-                
+
                 oscillator.connect(gainNode);
                 gainNode.connect(audioContext.destination);
-                
+
                 oscillator.frequency.value = 800;
                 oscillator.type = 'sine';
-                
+
                 gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
                 gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-                
+
                 oscillator.start(audioContext.currentTime);
                 oscillator.stop(audioContext.currentTime + 0.5);
             }
@@ -1021,7 +1057,7 @@
             celebration.textContent = '⏰ Rest Complete!';
             celebration.style.fontSize = '2rem';
             document.body.appendChild(celebration);
-            
+
             setTimeout(() => {
                 document.body.removeChild(celebration);
             }, 2000);
@@ -1048,13 +1084,13 @@
         }
 
         // Initialize the app
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadProgress();
             rotateQuote();
-            
+
             // Rotate quotes every 10 seconds
             setInterval(rotateQuote, 10000);
-            
+
             // Add some initial animations
             const cards = document.querySelectorAll('.workout-card');
             cards.forEach((card, index) => {
@@ -1074,4 +1110,5 @@
         document.head.appendChild(style);
     </script>
 </body>
+
 </html>
